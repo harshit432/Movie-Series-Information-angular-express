@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<!-- moviesingle07:38-->
+
+<head>
+  <!-- Basic need -->
+  <title>{{movieInfo.Type}} : {{movieInfo.Title}}</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <link rel="profile" href="#">
+
+  <!--Google Font-->
+  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+  <!-- Mobile specific meta -->
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone-no">
+
+</head>
+
+<body>
+  <header class="ht-header">
+    <div class="container">
+      <nav class="navbar navbar-default navbar-custom">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header logo">
+          <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+
+
+          </div>
+
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+        <!-- /.navbar-collapse -->
+      </nav>
+
+      <!-- top search form -->
+      <div class="top-search">
+        <input [(ngModel)]="movieTitle" type="text"
+          placeholder="Search for a movie, TV Show that you are looking, eg. Breaking Bad">
+        <button class="ui button" (click)="onSearch()">Go!</button>
+
+      </div>
+    </div>
+  </header>
+  <!-- END | Header -->
+
+  <div class="hero mv-single-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-single movie-single movie_single">
+    <div class="container">
+      <div class="row ipad-width2">
+        <div class="col-md-4 col-sm-12 col-xs-12">
+          <div class="movie-img sticky-sb">
+            <img [src]="movieInfo.Poster" [alt]="movieInfo.Title">
+
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-12 col-xs-12">
+          <div class="movie-single-ct main-content">
+            <h1 class="bd-hd">{{movieInfo.Title}}<span>({{movieInfo.Year}})</span></h1>
+            <h1 class="bd-hd"><span>{{movieInfo.Type}}</span></h1>
+            <h1 class="bd-hd"><span>{{movieInfo.Genre}}</span></h1>
+            <div class="movie-rate">
+              <div class="rate">
+                <i class="ion-android-star"></i>
+                <p><span>{{movieInfo.imdbRating}}</span> /10<br>
+                  <span class="rv">{{movieInfo.imdbVotes}} Reviews</span>
+                </p>
+              </div>
+              <div class="rate-star">
+                <i class="ion-ios-star" *ngFor="let star of stars"></i>
+                <i class="ion-ios-star-outline" *ngFor="let star of empty_stars"></i>
+              </div>
+            </div>
+
+            <div class="movie-tabs">
+              <div class="tabs">
+                <ul class="tab-links tabs-mv">
+                  <li class="active"><a>plot</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div id="overview" class="tab active">
+                    <div class="row">
+                      <div class="col-md-8 col-sm-12 col-xs-12">
+                        <p>{{movieInfo.Plot}}</p>
+                        <div *ngIf="movieInfo.Awards">
+                          <div class="title-hd-sm">
+                            <h4>AWARDS</h4>
+
+                          </div>
+                          <p>{{movieInfo.Awards}}</p>
+                        </div>
+                        <!-- movie cast -->
+                        <div *ngIf="movieInfo.BoxOffice">
+                          <div class="title-hd-sm">
+                            <h4>BOX-OFFICE EARNINGS</h4>
+
+                          </div>
+                          <p>{{movieInfo.BoxOffice}}</p>
+                        </div>
+                        <div *ngIf="movieInfo.Metascore">
+                          <div class="title-hd-sm">
+                            <h4>METASCORE</h4>
+
+                          </div>
+                          <p>{{movieInfo.Metascore}}</p>
+                        </div>
+                        <div class="title-hd-sm">
+                          <h4>View more about {{movieInfo.Type}} on 
+                          </h4>
+
+                        </div>
+                        <p><a [href]="imdbLink" class="imdb-logo">IMDb</a>
+                        </p>
+                      </div>
+                      <div class="col-md-4 col-xs-12 col-sm-12">
+                        <div class="sb-it" *ngIf="movieInfo.Director">
+                          <h6>Director: </h6>
+                          <p><a>{{movieInfo.Director}}</a></p>
+                        </div>
+                        <div class="sb-it" *ngIf="movieInfo.Writer">
+                          <h6>Writer: </h6>
+                          <p><a>{{movieInfo.Writer}}</a></p>
+                        </div>
+                        <div class="sb-it" *ngIf="movieInfo.Actors">
+                          <h6>Stars: </h6>
+                          <p><a>{{movieInfo.Actors}}</a></p>
+                        </div>
+                        <div class="sb-it" *ngIf="movieInfo.Production">
+                          <h6>Production:</h6>
+                          <p><a>{{movieInfo.Production}}</a></p>
+                        </div>
+                        <div class="sb-it" *ngIf="movieInfo.Released">
+                          <h6>Release Date:</h6>
+                          <p>{{movieInfo.Released}}</p>
+                        </div>
+                        <div class="sb-it" *ngIf="movieInfo.Runtime">
+                          <h6>Run Time:</h6>
+                          <p>{{movieInfo.Runtime}}</p>
+                        </div>
+                        <div class="sb-it">
+                          <h6>MMPA Rating:</h6>
+                          <p>PG-13</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer section-->
+  <footer class="ht-footer">
+    <div class="container">
+      <div class="flex-parent-ft">
+        <div class="flex-child-ft item1">
+
+          <p>DEVELOPER INFORMATION</p>
+          <p>Aditya Prakash Gupta<br>
+            Pre-Final Year Undergraduate<br>
+            Department of Electronics Engineering<br>
+            IIT(BHU), Varanasi-221005</p>
+
+          <div class="social-link">
+            <a href="https://www.facebook.com/apg1167" taget="_blank"><i class="ion-social-facebook"></i></a>
+            <a href="https://www.instagram.com/aditya_prakash_gupta/?hl=en" taget="_blank"><i
+                class="ion-social-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/aditya-prakash-gupta/" taget="_blank"><i
+                class="ion-social-linkedin"></i></a>
+            <a href="https://github.com/adipro7" taget="_blank"><i class="ion-social-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="container">
+        .
+      </div>
+    </div>
+    <div class="container">
+      <div class="container">
+        .
+      </div>
+    </div>
+    <div class="container">
+      <div class="container">
+        .
+      </div>
+    </div>
+    <div class="container"></div>
+    <div class="ft-copyright">
+      <div class="ft-left">
+
+      </div>
+      <div class="backtotop">
+
+      </div>
+    </div>
+  </footer>
+  <!-- end of footer section-->
+
+  <script src="js/jquery.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/plugins2.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+
+<!-- moviesingle11:03-->
+
+</html>

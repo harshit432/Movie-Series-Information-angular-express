@@ -1,0 +1,173 @@
+<!--<div class="background">
+    <input [(ngModel)]="movieTitle" class="search" />  
+    <!--ngModel is Angular Specific Attribute which needs to be imported-->
+<!--It is a part of FormsModule in app.module.ts-->
+<!--<button class="btn btn-success search-btn" (click)="onSearch()">Search</button>
+    <!--{{movieTitle}}-->
+<!-- The first part of capturing the user input in JavaScript has been done. Uncomment above statement and you will 
+        see the result-->
+<!--Variable movieTitle will have the title of the movie that we want to search for-->
+<!--Now we add an event handler, i.e. the click feature and will call a function onSearch in home.component.ts-->
+<!-- Remember that ngModel is a Form Specific DIRECTIVES in Angular and is used to create and use Form Data in variable-->
+<!--</div>
+-->
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+
+
+<head>
+  <!-- Basic need -->
+  <title>Search: {{movieTitle}}</title>
+  <meta charset="UTF-8">
+
+  <!--Google Font-->
+  <!--<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />-->
+  <!-- Mobile specific meta -->
+
+  <!-- CSS files -->
+  <!--<link rel="stylesheet" href="css/plugins.css">
+  <link rel="stylesheet" href="css/style.css">-->
+
+</head>
+
+<body>
+  <!--end of signup form popup-->
+
+  <!-- BEGIN | Header -->
+  <header class="ht-header">
+    <div class="container">
+      <nav class="navbar navbar-default navbar-custom">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header logo">
+          <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+
+
+          </div>
+
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+        <!-- /.navbar-collapse -->
+      </nav>
+
+      <!-- top search form -->
+      <div class="top-search">
+        <input [(ngModel)]="movieTitle" type="text"
+          placeholder="Search for a movie, TV Show that you are looking, eg. Breaking Bad">
+        <button class="ui button" (click)="onSearch()">Go!</button>
+
+      </div>
+    </div>
+  </header>
+  <!-- END | Header -->
+
+  <div class="slider movie-items">
+    <div class="container">
+      <div class="row">
+              <div class="col-md-3" *ngFor="let movie of movies">
+                <!--For Loop in Angular for HTML-->
+                <!--<div class="card" style="width: 18rem;">
+                  <div class="bd-placeholder-img card-img-top" style="width: 18rem; height: 18rem; overflow: hidden;">
+                    <img style="width: 18rem;" [src]="movie.Poster">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">{{ movie.Title }}</h5>
+                    <p class="card-text"> Year : {{ movie.Year }} , Type: {{ movie.Type }}, IMDB ID: {{movie.imdbID}}
+                    </p>
+                    <button class="btn btn-primary" (click)="onDetails(movie.imdbID)">View</button>
+
+                  </div>
+                </div>-->
+                <div class="flex-wrap-movielist" (click)="onDetails(movie.imdbID)">
+                  <div class="movie-item-style-2 movie-item-style-1 cate blue">
+                      
+                    <a (click)="onDetails(movie.imdbID)"><img [src]=" movie.Poster" [alt]="movie.Title"></a>
+                    
+                    
+                    <div class="mv-item-infor">
+                      
+                        <h6><a (click)="onDetails(movie.imdbID)">{{movie.Title}}</a></h6>
+                      
+                        <h6><a (click)="onDetails(movie.imdbID)">{{movie.Type}}</a></h6>
+                      
+                      
+                      
+                        <h6><a (click)="onDetails(movie.imdbID)">{{movie.Year}}</a></h6>
+                      
+                    </div>
+                  </div>
+                </div>
+                <br />
+              </div>
+      </div>
+    </div>
+  </div>
+  <!-- latest new v1 section-->
+  <!--end of latest new v1 section-->
+  <!-- footer section-->
+  <footer class="ht-footer">
+    <div class="container">
+      <div class="flex-parent-ft">
+        <div class="flex-child-ft item1">
+
+          <p>DEVELOPER INFORMATION</p>
+          <p>Aditya Prakash Gupta<br>
+            Pre-Final Year Undergraduate<br>
+            Department of Electronics Engineering<br>
+            IIT(BHU), Varanasi-221005</p>
+
+          <div class="social-link">
+            <a href="https://www.facebook.com/apg1167" taget="_blank"><i class="ion-social-facebook"></i></a>
+            <a href="https://www.instagram.com/aditya_prakash_gupta/?hl=en" taget="_blank"><i
+                class="ion-social-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/aditya-prakash-gupta/" taget="_blank"><i
+                class="ion-social-linkedin"></i></a>
+            <a href="https://github.com/adipro7" taget="_blank"><i class="ion-social-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="container">
+        .
+      </div>
+    </div>
+    <div class="container">
+      <div class="container">
+        .
+      </div>
+    </div>
+    <div class="container">
+      <div class="container">
+        .
+      </div>
+    </div>
+    <div class="container"></div>
+    <div class="ft-copyright">
+      <div class="ft-left">
+
+      </div>
+      <div class="backtotop">
+
+      </div>
+    </div>
+  </footer>
+  <!-- end of footer section-->
+
+  <script src="js/jquery.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/plugins2.js"></script>
+  <script src="js/custom.js"></script>
+
+
+</body>
+
+
+</html>

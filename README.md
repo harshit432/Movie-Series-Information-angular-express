@@ -10,7 +10,7 @@ Make a virtual environment if you don't want a global install
 
 Install Anguar 9
 
-Install Express JS
+Install Express JS.
 
 Install npm
 

@@ -12,7 +12,7 @@ Install Anguar 9
 
 Install Express JS.
 
-Install npm
+Install npm.
 
 In your terminal, go to omdb-server directory present in ExpressJS directory.
 
